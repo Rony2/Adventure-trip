@@ -31,12 +31,13 @@
     }
 
     &__link{
+        transition: all .3s;
         &:link,
         &:visited{
             color: $color-light-grey-1;
             text-decoration: none;
             text-transform: uppercase;
-            display: inline;
+            display: inline-block;
         }
 
         &:active,
