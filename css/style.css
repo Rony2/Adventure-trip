@@ -100,20 +100,25 @@ body {
 .u-margin-bottom-medium {
   margin-bottom: 4rem; }
 
+.u-margin-top-medium {
+  margin-top: 3rem; }
+
 .u-margin-bottom-small {
   margin-bottom: 1.5rem; }
 
 .u-margin-top-big {
   margin-top: 8rem; }
 
-.btn:link, .btn, .btn :visited {
+.btn, .btn:link, .btn, .btn :visited {
   text-transform: uppercase;
   text-decoration: none;
   padding: 1.5rem 4rem;
   display: inline-block;
   border-radius: 10rem;
   position: relative;
-  font-size: 1.6rem; }
+  cursor: pointer;
+  font-size: 1.6rem;
+  border: none; }
 
 .btn:hover {
   transform: translateY(-0.3rem);
@@ -122,7 +127,8 @@ body {
     transform: scaleX(1.4) scaleY(1.6);
     opacity: 0; }
 
-.btn:active {
+.btn:active, .btn:focus {
+  outline: none;
   transform: translateY(-0.1rem);
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
 
@@ -408,13 +414,47 @@ body {
   visibility: hidden;
   transform: translateY(-4rem); }
 
-.form__radio-group {
-  width: 50%;
-  display: inline-block; }
+.form__radio-input {
+  display: none; }
 
 .form__radio-label {
   font-size: 1.6rem;
-  cursor: pointer; }
+  cursor: pointer;
+  position: relative;
+  padding-left: 5rem; }
+
+.form__radio-input:not(:first-child) {
+  margin-left: 9rem; }
+
+.form__radio-button {
+  height: 3rem;
+  width: 3rem;
+  border: 5px solid #55c57a;
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: -.4rem; }
+  .form__radio-button::after {
+    content: "";
+    display: block;
+    height: 1.3rem;
+    width: 1.3rem;
+    border-radius: 50%;
+    position: absolute;
+    background-color: #55c57a;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity .2s; }
+
+.form__radio-input:checked ~ .form__radio-label .form__radio-button::after {
+  opacity: 1; }
+
+.form__group:nth-child(3), .form__group:nth-child(4) {
+  display: inline-block;
+  width: 48%; }
 
 .row {
   max-width: 114rem;
@@ -461,6 +501,39 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center; }
+
+.footer {
+  background-color: #333;
+  padding: 10rem 0;
+  font-size: 1.4rem; }
+  .footer__logo-box {
+    text-align: center;
+    margin-bottom: 8rem; }
+  .footer__logo {
+    width: 15rem; }
+  .footer__navigation {
+    border-top: 1px solid #f7f7f7;
+    padding: 2rem 0;
+    display: inline-block; }
+  .footer__list {
+    list-style: none; }
+  .footer__item {
+    display: inline-block; }
+    .footer__item:not(:last-child) {
+      margin-right: 1.5rem; }
+  .footer__link:link, .footer__link:visited {
+    color: #f7f7f7;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: inline; }
+  .footer__link:active, .footer__link:hover {
+    color: #55c57a;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4);
+    transform: rotate(5deg) scale(1.5); }
+  .footer__copyright {
+    border-top: 1px solid #f7f7f7;
+    padding: 2rem 0;
+    display: inline-block; }
 
 .section-about {
   background-color: #f7f7f7;
